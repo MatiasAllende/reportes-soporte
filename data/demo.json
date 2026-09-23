@@ -1,0 +1,166 @@
+{
+  "projectKey": "PDSE",
+  "projectName": "Soporte",
+  "demoNote": "Datos de ejemplo para la presentación. No vienen de Jira todavía.",
+  "technicians": [
+    { "id": "ana", "name": "Ana López" },
+    { "id": "bruno", "name": "Bruno Méndez" },
+    { "id": "carla", "name": "Carla Ruiz" },
+    { "id": "diego", "name": "Diego Soto" },
+    { "id": "elena", "name": "Elena Vargas" }
+  ],
+  "weeks": [
+    {
+      "id": "2026-W31",
+      "label": "Semana 31 · 28 jul – 3 ago",
+      "start": "2026-07-28",
+      "end": "2026-08-03",
+      "created": 48,
+      "resolved": 41,
+      "open": 94,
+      "stale": 15,
+      "unassigned": 7,
+      "reopened": 4,
+      "byTechnician": [
+        { "id": "ana", "open": 18, "resolved": 11, "avgResolutionDays": 2.8, "created": 10 },
+        { "id": "bruno", "open": 21, "resolved": 8, "avgResolutionDays": 3.6, "created": 12 },
+        { "id": "carla", "open": 16, "resolved": 9, "avgResolutionDays": 2.1, "created": 8 },
+        { "id": "diego", "open": 22, "resolved": 7, "avgResolutionDays": 4.2, "created": 11 },
+        { "id": "elena", "open": 17, "resolved": 6, "avgResolutionDays": 3.0, "created": 7 }
+      ]
+    },
+    {
+      "id": "2026-W32",
+      "label": "Semana 32 · 4–10 ago",
+      "start": "2026-08-04",
+      "end": "2026-08-10",
+      "created": 52,
+      "resolved": 49,
+      "open": 97,
+      "stale": 14,
+      "unassigned": 6,
+      "reopened": 5,
+      "byTechnician": [
+        { "id": "ana", "open": 17, "resolved": 13, "avgResolutionDays": 2.5, "created": 11 },
+        { "id": "bruno", "open": 23, "resolved": 9, "avgResolutionDays": 3.4, "created": 13 },
+        { "id": "carla", "open": 15, "resolved": 12, "avgResolutionDays": 1.9, "created": 9 },
+        { "id": "diego", "open": 24, "resolved": 8, "avgResolutionDays": 3.9, "created": 10 },
+        { "id": "elena", "open": 18, "resolved": 7, "avgResolutionDays": 2.8, "created": 9 }
+      ]
+    },
+    {
+      "id": "2026-W33",
+      "label": "Semana 33 · 11–17 ago",
+      "start": "2026-08-11",
+      "end": "2026-08-17",
+      "created": 44,
+      "resolved": 51,
+      "open": 90,
+      "stale": 11,
+      "unassigned": 4,
+      "reopened": 3,
+      "byTechnician": [
+        { "id": "ana", "open": 15, "resolved": 14, "avgResolutionDays": 2.2, "created": 9 },
+        { "id": "bruno", "open": 20, "resolved": 11, "avgResolutionDays": 3.1, "created": 10 },
+        { "id": "carla", "open": 14, "resolved": 11, "avgResolutionDays": 2.0, "created": 8 },
+        { "id": "diego", "open": 23, "resolved": 9, "avgResolutionDays": 3.7, "created": 9 },
+        { "id": "elena", "open": 18, "resolved": 6, "avgResolutionDays": 2.9, "created": 8 }
+      ]
+    },
+    {
+      "id": "2026-W34",
+      "label": "Semana 34 · 18–24 ago",
+      "start": "2026-08-18",
+      "end": "2026-08-24",
+      "created": 39,
+      "resolved": 46,
+      "open": 83,
+      "stale": 10,
+      "unassigned": 3,
+      "reopened": 2,
+      "byTechnician": [
+        { "id": "ana", "open": 14, "resolved": 12, "avgResolutionDays": 2.0, "created": 7 },
+        { "id": "bruno", "open": 19, "resolved": 10, "avgResolutionDays": 2.9, "created": 9 },
+        { "id": "carla", "open": 12, "resolved": 10, "avgResolutionDays": 1.8, "created": 6 },
+        { "id": "diego", "open": 21, "resolved": 8, "avgResolutionDays": 3.5, "created": 10 },
+        { "id": "elena", "open": 17, "resolved": 6, "avgResolutionDays": 2.6, "created": 7 }
+      ]
+    },
+    {
+      "id": "2026-W35",
+      "label": "Semana 35 · 25–31 ago",
+      "start": "2026-08-25",
+      "end": "2026-08-31",
+      "created": 55,
+      "resolved": 47,
+      "open": 91,
+      "stale": 13,
+      "unassigned": 5,
+      "reopened": 4,
+      "byTechnician": [
+        { "id": "ana", "open": 16, "resolved": 12, "avgResolutionDays": 2.4, "created": 12 },
+        { "id": "bruno", "open": 22, "resolved": 9, "avgResolutionDays": 3.3, "created": 14 },
+        { "id": "carla", "open": 13, "resolved": 11, "avgResolutionDays": 1.7, "created": 9 },
+        { "id": "diego", "open": 22, "resolved": 8, "avgResolutionDays": 4.0, "created": 11 },
+        { "id": "elena", "open": 18, "resolved": 7, "avgResolutionDays": 2.7, "created": 9 }
+      ]
+    },
+    {
+      "id": "2026-W36",
+      "label": "Semana 36 · 1–7 sep",
+      "start": "2026-09-01",
+      "end": "2026-09-07",
+      "created": 50,
+      "resolved": 53,
+      "open": 88,
+      "stale": 9,
+      "unassigned": 4,
+      "reopened": 3,
+      "byTechnician": [
+        { "id": "ana", "open": 14, "resolved": 14, "avgResolutionDays": 2.1, "created": 10 },
+        { "id": "bruno", "open": 20, "resolved": 11, "avgResolutionDays": 2.8, "created": 12 },
+        { "id": "carla", "open": 12, "resolved": 13, "avgResolutionDays": 1.6, "created": 8 },
+        { "id": "diego", "open": 23, "resolved": 8, "avgResolutionDays": 3.6, "created": 11 },
+        { "id": "elena", "open": 19, "resolved": 7, "avgResolutionDays": 2.5, "created": 9 }
+      ]
+    },
+    {
+      "id": "2026-W37",
+      "label": "Semana 37 · 8–14 sep",
+      "start": "2026-09-08",
+      "end": "2026-09-14",
+      "created": 46,
+      "resolved": 50,
+      "open": 84,
+      "stale": 8,
+      "unassigned": 3,
+      "reopened": 2,
+      "byTechnician": [
+        { "id": "ana", "open": 13, "resolved": 13, "avgResolutionDays": 1.9, "created": 9 },
+        { "id": "bruno", "open": 18, "resolved": 12, "avgResolutionDays": 2.6, "created": 10 },
+        { "id": "carla", "open": 11, "resolved": 12, "avgResolutionDays": 1.5, "created": 8 },
+        { "id": "diego", "open": 24, "resolved": 7, "avgResolutionDays": 3.8, "created": 11 },
+        { "id": "elena", "open": 18, "resolved": 6, "avgResolutionDays": 2.4, "created": 8 }
+      ]
+    },
+    {
+      "id": "2026-W38",
+      "label": "Semana 38 · 15–21 sep",
+      "start": "2026-09-15",
+      "end": "2026-09-21",
+      "created": 43,
+      "resolved": 48,
+      "open": 79,
+      "stale": 7,
+      "unassigned": 2,
+      "reopened": 2,
+      "byTechnician": [
+        { "id": "ana", "open": 12, "resolved": 12, "avgResolutionDays": 1.8, "created": 8 },
+        { "id": "bruno", "open": 17, "resolved": 11, "avgResolutionDays": 2.5, "created": 10 },
+        { "id": "carla", "open": 10, "resolved": 11, "avgResolutionDays": 1.4, "created": 7 },
+        { "id": "diego", "open": 22, "resolved": 8, "avgResolutionDays": 3.4, "created": 10 },
+        { "id": "elena", "open": 18, "resolved": 6, "avgResolutionDays": 2.3, "created": 8 }
+      ]
+    }
+  ]
+}
