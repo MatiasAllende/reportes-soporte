@@ -21,7 +21,7 @@ export function KpiRow({
         const deltaLabel = formatDelta(item.delta ?? null);
         const toneClass =
           item.tone === "good"
-            ? "text-teal"
+            ? "text-green"
             : item.tone === "warn"
               ? "text-amber"
               : "text-ink";
@@ -29,7 +29,7 @@ export function KpiRow({
         return (
           <div
             key={item.label}
-            className={`animate-rise delay-${index + 1} border-t-2 border-teal/40 pt-4`}
+            className={`animate-rise delay-${index + 1} border-t-2 border-green/50 pt-4`}
           >
             <p className="text-[11px] font-semibold tracking-[0.16em] text-ink-soft uppercase">
               {item.label}

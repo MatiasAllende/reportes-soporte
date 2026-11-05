@@ -1,4 +1,3 @@
-import { demoData, technicianName } from "./data";
 import type { WeekSnapshot } from "./types";
 
 function escapeCell(value: string | number): string {
@@ -9,7 +8,11 @@ function escapeCell(value: string | number): string {
   return text;
 }
 
-export function weekToCsv(week: WeekSnapshot): string {
+export function weekToCsv(
+  week: WeekSnapshot,
+  names: Record<string, string>,
+  projectKey = "Proyecto",
+): string {
   const header = [
     "semana",
     "tecnico",
@@ -22,19 +25,19 @@ export function weekToCsv(week: WeekSnapshot): string {
   const rows = week.byTechnician.map((row) =>
     [
       week.id,
-      technicianName(row.id),
+      names[row.id] ?? row.id,
       row.open,
       row.resolved,
       row.created,
       row.avgResolutionDays,
     ]
       .map(escapeCell)
-      .join(",")
+      .join(","),
   );
 
   const summary = [
     "",
-    `Proyecto,${demoData.projectKey}`,
+    `Proyecto,${projectKey}`,
     `Periodo,${week.label}`,
     `Creados,${week.created}`,
     `Resueltos,${week.resolved}`,
@@ -42,8 +45,11 @@ export function weekToCsv(week: WeekSnapshot): string {
     `Estancados,${week.stale}`,
     `Sin asignar,${week.unassigned}`,
     `Reabiertos,${week.reopened}`,
+    week.syncedAt ? `Sincronizado,${week.syncedAt}` : "",
     "",
-  ].join("\n");
+  ]
+    .filter((line) => line !== undefined)
+    .join("\n");
 
   return `${summary}${header.join(",")}\n${rows.join("\n")}\n`;
 }

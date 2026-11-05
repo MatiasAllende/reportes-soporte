@@ -1,14 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #0c1b2a;
-  --ink-soft: #243447;
-  --mist: #e8f1f4;
-  --paper: #f4f8f9;
-  --teal: #0f766e;
-  --teal-bright: #14b8a6;
-  --amber: #c2410c;
-  --line: rgba(12, 27, 42, 0.1);
+  --ink: #0a0a0a;
+  --ink-soft: #3f3f46;
+  --mist: #f4f4f5;
+  --paper: #ffffff;
+  --green: #16a34a;
+  --green-dark: #15803d;
+  --green-soft: #dcfce7;
+  --amber: #a16207;
+  --line: rgba(10, 10, 10, 0.12);
   --background: var(--paper);
   --foreground: var(--ink);
 }
@@ -20,8 +21,9 @@
   --color-ink-soft: var(--ink-soft);
   --color-mist: var(--mist);
   --color-paper: var(--paper);
-  --color-teal: var(--teal);
-  --color-teal-bright: var(--teal-bright);
+  --color-green: var(--green);
+  --color-green-dark: var(--green-dark);
+  --color-green-soft: var(--green-soft);
   --color-amber: var(--amber);
   --font-sans: var(--font-body);
   --font-display: var(--font-display);
@@ -36,17 +38,17 @@ body {
 
 .bg-atmosphere {
   background:
-    radial-gradient(1200px 600px at 10% -10%, rgba(20, 184, 166, 0.18), transparent 55%),
-    radial-gradient(900px 500px at 100% 0%, rgba(36, 52, 71, 0.12), transparent 50%),
-    linear-gradient(180deg, #eef5f7 0%, #f4f8f9 45%, #eef3f5 100%);
+    radial-gradient(1000px 520px at 8% -8%, rgba(22, 163, 74, 0.16), transparent 55%),
+    radial-gradient(800px 420px at 100% 0%, rgba(10, 10, 10, 0.06), transparent 48%),
+    linear-gradient(180deg, #ffffff 0%, #f7f7f7 48%, #eef7f0 100%);
 }
 
 .bg-grid {
   background-image:
-    linear-gradient(rgba(12, 27, 42, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(12, 27, 42, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(10, 10, 10, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 10, 10, 0.035) 1px, transparent 1px);
   background-size: 48px 48px;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 85%);
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent 85%);
 }
 
 @keyframes rise-in {
@@ -88,4 +90,9 @@ body {
 }
 .delay-4 {
   animation-delay: 0.32s;
+}
+
+:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
 }

@@ -1,21 +1,24 @@
 import type { Metadata } from "next";
-import { Figtree, Syne } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const figtree = Figtree({
-  variable: "--font-body",
-  subsets: ["latin"],
+const baloo = localFont({
+  src: "../fonts/baloo-latin.woff2",
+  variable: "--font-display",
+  weight: "400 800",
+  display: "swap",
 });
 
-const syne = Syne({
-  variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["600", "700", "800"],
+const balooBody = localFont({
+  src: "../fonts/baloo-latin.woff2",
+  variable: "--font-body",
+  weight: "400 700",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "PDSE · Métricas de Soporte",
-  description: "Prototipo interno de métricas simplificadas del proyecto PDSE",
+  title: "Métricas de soporte",
+  description: "Dashboard de métricas semanales de un proyecto de Jira",
 };
 
 export default function RootLayout({
@@ -25,7 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${figtree.variable} ${syne.variable} antialiased`}>
+      <body
+        className={`${baloo.variable} ${balooBody.variable} antialiased`}
+      >
         {children}
       </body>
     </html>

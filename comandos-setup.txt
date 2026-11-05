@@ -1,0 +1,63 @@
+COMANDOS PARA ABRIR REPORTES EN OTRA PC
+======================================
+
+Correr cada bloque en la terminal, dentro de la carpeta del proyecto.
+
+--------------------------------------------------
+1. CLONAR
+--------------------------------------------------
+
+Cuando el repo personal exista:
+
+git clone https://github.com/MatiasAllende/reportes-soporte.git
+cd reportes-soporte
+
+--------------------------------------------------
+2. INSTALAR Y CONFIGURAR
+--------------------------------------------------
+
+npm install
+cp .env.example .env.local
+
+Editar .env.local y completar:
+
+  JIRA_BASE_URL      https://TU-SITIO.atlassian.net
+  JIRA_EMAIL         email de Atlassian
+  JIRA_API_TOKEN     API token de esa cuenta
+  JIRA_PROJECT_KEY   clave del proyecto
+  JIRA_PROJECT_NAME  nombre para mostrar
+
+No subas .env.local ni data/pdse.sqlite a Git.
+
+--------------------------------------------------
+3. ARRANCAR
+--------------------------------------------------
+
+npm run dev
+
+Abrir http://localhost:3000
+
+--------------------------------------------------
+4. USO
+--------------------------------------------------
+
+En Admin, importar el CSV de tecnicos (name,accountId,team,active).
+Hay una plantilla en public/technicians.example.csv.
+
+En Semana, elegir el periodo y tocar Sincronizar semana.
+
+--------------------------------------------------
+5. GUARDAR CAMBIOS EN GITHUB
+--------------------------------------------------
+
+git add -A
+git commit -m "descripcion del cambio"
+git push
+
+--------------------------------------------------
+NOTA
+--------------------------------------------------
+
+El remote origin de esta carpeta, en la PC del trabajo, apunta al
+repo de la cuenta de trabajo. No hagas git push ahi si queres que
+el codigo vaya solo al GitHub personal.

@@ -1,42 +1,79 @@
-# PDSE · Métricas de Soporte (prototipo)
+# Métricas de soporte
 
-Dashboard interno de demostración para presentar métricas simplificadas del proyecto Jira **PDSE**.
+Dashboard de métricas semanales de un proyecto de Jira Cloud. La clave del proyecto sale de `.env.local`.
 
-Usa **datos de ejemplo** (`data/demo.json`). No conecta a Jira todavía.
+Consume **Jira Cloud** bajo demanda, guarda cierres semanales en **SQLite local** y deja administrar técnicos por CSV.
 
-## Correr en localhost
+## Requisitos
+
+- Node.js 20+
+- Cuenta de Jira Cloud con API token
+
+## Setup
 
 ```bash
-cd pdse-dashboard
 npm install
+cp .env.example .env.local
+```
+
+Completá `.env.local`:
+
+```env
+JIRA_BASE_URL=https://TU-EMPRESA.atlassian.net
+JIRA_EMAIL=tu-email@empresa.com
+JIRA_API_TOKEN=pegar-token-aqui
+JIRA_PROJECT_KEY=TU-PROYECTO
+JIRA_PROJECT_NAME=Soporte
+```
+
+Arranque:
+
+```bash
 npm run dev
 ```
 
 Abrí [http://localhost:3000](http://localhost:3000).
 
-## Qué incluye
+## Rutina semanal
 
-- **Semana** — KPIs, gráfico por técnico, señales operativas, tabla
-- **Técnicos** — carga, resueltos, tiempo medio de resolución
-- **Tendencias** — serie de las últimas semanas
-- **Exportar CSV** — descarga del período seleccionado
+1. En **Admin**, importá el CSV de técnicos (`name,accountId,team,active`). Hay una plantilla en `/technicians.example.csv`.
+2. En **Semana**, elegí el período y tocá **Sincronizar semana**.
+3. Revisá KPIs, técnicos y tendencias. Exportá CSV si hace falta.
 
-Sin login. Sin Git remoto. Sin base de datos.
+Cada sincronización **sobrescribe** el snapshot de esa semana y deja un historial de sync en la base local (`data/pdse.sqlite`).
 
-## Fase 2 (cuando quieran datos reales)
+## Métricas
 
-1. Revocar cualquier API token que se haya compartido por chat y generar uno nuevo
-2. Crear un archivo `.env.local` (no subir a Git):
+| Métrica | Criterio |
+| --- | --- |
+| Creados | Issues creados en la semana |
+| Resueltos | `statusCategory = Done` con `resolved` en la semana |
+| Backlog abierto | Creados hasta el fin de semana y no resueltos después de esa fecha |
+| Estancados | Abiertos sin actualización hace más de **3 días** |
+| Sin asignar | Abiertos sin assignee |
+| Reabiertos | Cambio de estado fuera de Done durante la semana (changelog) |
 
-```env
-JIRA_BASE_URL=https://TU-EMPRESA.atlassian.net
-JIRA_EMAIL=tu-email@empresa.com
-JIRA_API_TOKEN=pegar-token-nuevo-aqui
-JIRA_PROJECT_KEY=PDSE
+## CSV de técnicos
+
+```csv
+name,accountId,team,active
+Ana López,557058:aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee,N1,true
 ```
 
-3. Reemplazar la lectura de `data/demo.json` por llamadas a la API de Jira
+- `accountId` es el ID de Atlassian (lo ves en el perfil del usuario en Jira).
+- La importación es **atómica**: si una fila falla, no se guarda ninguna.
+- Podés activar/desactivar técnicos desde Admin.
 
-## Editar la demo
+## Scripts
 
-Los números y nombres de técnicos se cambian en [`data/demo.json`](data/demo.json).
+```bash
+npm run dev      # desarrollo
+npm run build    # build
+npm run start    # producción local
+npm test         # pruebas unitarias
+```
+
+## Seguridad
+
+- No subas `.env.local` ni `data/pdse.sqlite` a Git.
+- Si un token se filtró, revocalo en Atlassian y generá uno nuevo.

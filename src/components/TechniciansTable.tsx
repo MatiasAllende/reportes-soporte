@@ -1,10 +1,14 @@
-import { technicianName } from "@/lib/data";
+import Link from "next/link";
 import type { WeekSnapshot } from "@/lib/types";
 
-export function TechniciansTable({ week }: { week: WeekSnapshot }) {
-  const rows = [...week.byTechnician].sort(
-    (a, b) => b.resolved - a.resolved
-  );
+export function TechniciansTable({
+  week,
+  names,
+}: {
+  week: WeekSnapshot;
+  names: Record<string, string>;
+}) {
+  const rows = [...week.byTechnician].sort((a, b) => b.resolved - a.resolved);
 
   return (
     <div className="animate-rise delay-3 overflow-x-auto">
@@ -25,9 +29,14 @@ export function TechniciansTable({ week }: { week: WeekSnapshot }) {
               className="border-b border-[var(--line)] last:border-none"
             >
               <td className="py-3.5 pr-4 font-semibold text-ink">
-                {technicianName(row.id)}
+                <Link
+                  href={`/tecnicos/${row.id}`}
+                  className="hover:text-green hover:underline"
+                >
+                  {names[row.id] ?? row.id}
+                </Link>
               </td>
-              <td className="py-3.5 pr-4 text-teal">{row.resolved}</td>
+              <td className="py-3.5 pr-4 text-green">{row.resolved}</td>
               <td className="py-3.5 pr-4">{row.open}</td>
               <td className="py-3.5 pr-4">{row.created}</td>
               <td className="py-3.5">{row.avgResolutionDays.toFixed(1)} d</td>
